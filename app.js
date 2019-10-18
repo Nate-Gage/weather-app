@@ -39,7 +39,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
-        body: 'If you need help, you are out of luck',
+        body: 'Weather data is collected from the darksky API',
         name: 'Nate Gage'
     })
 })

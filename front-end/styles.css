@@ -1,5 +1,15 @@
-
+#headStyle {
+    background-color: lightgray;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    text-align: center;
+}
+#footerStyle {
+    margin-top: 30px;
+}
 .body {
+    height:100%;
+    width: 100%;
     text-align:center;
 }
 .bodyContent {

@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <script src="./front-end/js/clientside.js"></script>
 </head>
 
 <body>
+    {{>header}}
     <div class="container">
-        {{>header}}
-
-        <p>Please enter a city:</p>
+    
+        <p>Please enter a city to view local weather:</p>
         <form action="/action_page.php">
             City: <input type="text" name="city" value="Denver"><br>
-
+            <br>
             <input type="submit" value="Submit">
         </form>
 
