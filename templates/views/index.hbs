@@ -8,10 +8,19 @@
 </head>
 
 <body>
-    {{>header}}
+    <div class="container">
+        {{>header}}
 
+        <p>Please enter a city:</p>
+        <form action="/action_page.php">
+            City: <input type="text" name="city" value="Denver"><br>
 
-    {{>footer}}
+            <input type="submit" value="Submit">
+        </form>
+
+        <br><br>
+        {{>footer}}
+    </div>
 </body>
 
 </html>
