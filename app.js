@@ -32,7 +32,6 @@ app.get('/about', (req, res) => {
         title: 'About Page',
         body: 'this is the body content of the about page',
         name: 'Nate Gage'
-        //put object attributes here
     })
 })
 
