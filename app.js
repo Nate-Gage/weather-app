@@ -22,7 +22,7 @@ app.use(express.static(staticDirectory))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather Application',
+        title: 'Check the Forecast',
         name: 'Nate Gage'
     })
 })
@@ -38,7 +38,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
-        body: 'Weather data is collected from the darksky API',
+        body: 'Weather data is collected from the darksky API (www.darksky.net)',
         name: 'Nate Gage'
     })
 })
@@ -73,7 +73,8 @@ app.get('*', (req, res) => {
     })
 })
 
+const PORT = process.env.PORT || 3000
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('server is up on port 3000.')
 })
