@@ -27,6 +27,35 @@ app.get('', (req, res) => {
     })
 })
 
+//SANDBOX
+app.get('/sandbox', (req, res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: 'you must include an address'
+        })
+    }
+
+    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
+
+        if (error) {
+            return res.send({ error })
+        }
+        forecast(latitude, longitude, (error, forecastData) => {
+            if (error) {
+                return res.send({ error })
+            }
+
+            console.log(location, forecastData)
+            res.send({
+                forecast: forecastData,
+                location: location,
+                address: req.query.address
+            })
+        })
+    })
+})
+
+//ABOUT PAGE
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Page',
@@ -35,6 +64,7 @@ app.get('/about', (req, res) => {
     })
 })
 
+//HELP PAGE
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help Page',
@@ -43,6 +73,23 @@ app.get('/help', (req, res) => {
     })
 })
 
+
+app.get('/products', (req, res) => {
+
+    if (!req.query.search) {
+        return res.send({
+            error: 'you must provide a search term'
+        })
+    }
+
+    console.log(req.query)
+    res.send({
+        products: []
+    })
+})
+
+
+//WEATHER-DATA
 app.get('/weather-data', (req, res) => {
 
     geocode(req.query.city, (error, { latitude, longitude, location }) => {
@@ -62,6 +109,7 @@ app.get('/weather-data', (req, res) => {
 
 })
 
+//HELP PAGE
 app.get('/help/*', (req, res) => {
     res.send('Help article not found')
 })
@@ -73,6 +121,7 @@ app.get('*', (req, res) => {
     })
 })
 
+//setting app to listen on available port
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
