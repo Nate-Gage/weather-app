@@ -4,23 +4,28 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="./styles.css">
-    <script src="./clientside.js"></script>
 </head>
 
 <body>
     {{>header}}
     <div class="container">
-    
+
         <p>Please enter a city to view local weather:</p>
-        <form action="/weather-data/">
-            City: <input type="text" name="city" value="Denver"><br>
+        <form>
             <br>
-            <input type="submit" value="Submit">
+            <input placeholder="Location">
+            <button>Search</button>
         </form>
+
+        <p id="message-1"></p>
+        <p id="message-2"></p>
+        <p id="forecastMessage"></p>
 
         <br><br>
         {{>footer}}
     </div>
+
+    <script src="./clientside.js"></script>
 </body>
 
 </html>
